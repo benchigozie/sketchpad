@@ -19,6 +19,9 @@ button {
   color: beige;
   background: rgb(44, 133, 133);
 }
+button:hover{
+  cursor: pointer;
+}
 .grid-container{
   margin: 40px;
   width: 500px;
@@ -32,4 +35,9 @@ h1{
 .buttons{
     display: flex;
     justify-content: space-around;
+}
+.message{
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
 }
