@@ -1,8 +1,9 @@
 let pad = document.querySelector(".grid-container");
 let size = 16;
-createBoard(size);
+var color = "black";
+createBoard(size, color);
 function createBoard(size) {
-  
+  pad.textContent = "";
   pad.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
   pad.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
   let divNumber = size * size;
@@ -11,13 +12,14 @@ function createBoard(size) {
     let div = document.createElement("div");
     div.classList.add("pad-box");
     pad.appendChild(div);
+    div.onmouseover = function(){
+      if(color == col){
+        div.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;    
+      }
+      div.style.background = `${color}`;
+    }
   }
-  let allPads = document.querySelectorAll(".pad-box");
-  //console.log(allPads);
-  for(let b = 0; b < allPads.length; b++){
-    allPads[b].style.background = "yellow";
-    //console.log(allPads[b]);
-  };
+ 
 }
 function getBoardSize() {
   let boardSize = prompt("Input a Size");
@@ -28,12 +30,22 @@ function getBoardSize() {
   else if(boardSize < 0 || boardSize > 100){
     document.querySelector(".message").textContent = "Select a size from 1 - 100";
   }
-  pad.textContent = "";
+  
   return boardSize;
 }
-console.log(size);
-
+ function reset(){
+  let allDivs = document.querySelectorAll(".pad-box");
+  for (let a = 0; a < allDivs.length; a++){
+    allDivs[a].style.backgroundColor = "white";
+  };
+};
 document.querySelector(".pad-size").addEventListener(("click"), () => {
     let padSize = getBoardSize();
     createBoard(padSize);
-})
+});
+function changeColor(chosenColor){
+  color = chosenColor;
+};
+let col = "random"
+document.querySelector("#random").onclick = function (){color = col};
+  

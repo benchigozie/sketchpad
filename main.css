@@ -12,20 +12,18 @@ body {
   font-weight: 700;
 }
 button {
-  width: 120px;
+  width: 100px;
   height: 40px;
   border: none;
   border-radius: 7px;
-  color: beige;
-  background: rgb(44, 133, 133);
 }
 button:hover{
   cursor: pointer;
 }
 .grid-container{
-  margin: 40px;
-  width: 500px;
-  height: 500px;
+  margin-right: 98px;
+  width: 450px;
+  height: 450px;
   display: grid;
   border: 1px solid black;
 }
@@ -33,11 +31,33 @@ h1{
     font-size: 2.5rem;
 }
 .buttons{
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 520px;
 }
 .message{
   display: flex;
   justify-content: center;
   margin: 20px auto;
+}
+#black{
+  background-color: black;
+  color: white;
+}
+#blue{
+  background-color: blue;
+  color: white;
+}
+#green{
+  background-color: green;
+  color: white;
+}
+#random{
+  color: white;
+  background: linear-gradient();
+}
+#reset{
+  background-color: red;
+  color: white;
 }
